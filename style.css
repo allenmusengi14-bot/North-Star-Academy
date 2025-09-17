@@ -167,7 +167,7 @@ section {
     text-align: center;
 }
 
-.subject-cards {
+.level-cards {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -175,17 +175,61 @@ section {
     margin-top: 40px;
 }
 
-.card {
+.level-card {
     background-color: var(--white);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     width: 250px;
-    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, height 0.5s ease-in-out;
+    overflow: hidden;
+    height: 100px; /* Initial height */
+    text-align: left;
 }
 
-.card h3 {
+.level-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.level-card h3 {
+    text-align: center;
     color: var(--accent-blue);
+    margin-bottom: 20px;
+}
+
+.subject-list {
+    display: none; /* Hide the list by default */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.subject-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.subject-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.subject-list li:last-child {
+    border-bottom: none;
+}
+
+.level-card.expanded {
+    height: auto; /* Expand the height to show content */
+}
+
+/* Show the subject list when the card is expanded */
+.level-card.expanded .subject-list {
+    display: block;
 }
 
 /* Call to Action Section */
